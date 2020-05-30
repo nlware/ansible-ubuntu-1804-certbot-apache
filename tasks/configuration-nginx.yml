@@ -1,0 +1,6 @@
+# tasks file for ubuntu-1804-letsencrypt
+---
+- name: configuration-nginx | copy snippet file
+  template:
+    src: etc/nginx/snippets/letsencrypt.conf.j2
+    dest: "/etc/nginx/snippets/letsencrypt.conf"

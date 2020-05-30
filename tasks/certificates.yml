@@ -1,0 +1,18 @@
+# tasks file for ubuntu-1804-letsencrypt
+---
+- name: configuration | request host certificate
+  command: "certbot certonly --cert-name {{ ansible_host }} -d {{ ansible_host }}"
+  register: ubuntu_1804_letsencrypt_configure_request_host_certificate
+  changed_when: "'no action taken' not in ubuntu_1804_letsencrypt_configure_request_host_certificate.stdout"
+
+- name: configuration | request additional certificates
+  command: "certbot certonly --cert-name {{ item.name }} -d {{ item.name }} {{ '-d' if (item.aliases | default([]) | length > 0) else '' }} {{ item.aliases | default([]) | join(' -d ') }}"
+  register: _ubuntu_1804_letsencrypt_configure_request_additional_certificates
+  changed_when: "'no action taken' not in _ubuntu_1804_letsencrypt_configure_request_additional_certificates.stdout"
+  with_items: "{{ ubuntu_1804_letsencrypt_additional_certificates_present }}"
+
+- name: configuration | remove additional certificates
+  command: "certbot delete --cert-name {{ item.name }}"
+  args:
+    removes: "/etc/letsencrypt/renewal/{{ item.name }}.conf"
+  with_items: "{{ ubuntu_1804_letsencrypt_additional_certificates_absent }}"

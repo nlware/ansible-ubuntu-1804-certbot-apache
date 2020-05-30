@@ -1,0 +1,18 @@
+# {{ ansible_managed }}
+
+# Because we are using logrotate for greater flexibility, disable the
+# internal certbot logrotation.
+max-log-backups = 0
+
+email = {{ ubuntu_1804_letsencrypt_admin_email }}
+
+authenticator = webroot
+webroot-path = {{ ubuntu_1804_letsencrypt_webroot_path }}
+
+deploy-hook = {{ haproxy_letsencrypt_ssl_deploy }}
+
+agree-tos = True
+
+keep-until-expiring = True
+expand = True
+non-interactive = True

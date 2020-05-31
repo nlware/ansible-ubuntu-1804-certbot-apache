@@ -5,11 +5,13 @@
     src: etc/letsencrypt/cli.ini.j2
     dest: "/etc/letsencrypt/cli.ini"
 
-- name: configuration | create http challenges directory
+- name: configuration | create acme challenges directory
   file:
     path: "{{ ubuntu_1804_letsencrypt_webroot_path }}/{{ ubuntu_1804_letsencrypt_acme_challenge_path }}"
     state: directory
 
-# - include: configuration-apache.yml
+- include: configuration-apache.yml
+  when: ubuntu_1804_letsencrypt_webroot_webserver == 'apache'
 
-# - include: configuration-nginx.yml
+- include: configuration-nginx.yml
+  when: ubuntu_1804_letsencrypt_webroot_webserver == 'nginx'

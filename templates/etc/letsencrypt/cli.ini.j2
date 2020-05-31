@@ -4,12 +4,16 @@
 # internal certbot logrotation.
 max-log-backups = 0
 
+{% if ubuntu_1804_letsencrypt_admin_email %}
 email = {{ ubuntu_1804_letsencrypt_admin_email }}
+{% endif %}
 
 authenticator = webroot
 webroot-path = {{ ubuntu_1804_letsencrypt_webroot_path }}
 
-deploy-hook = {{ haproxy_letsencrypt_ssl_deploy }}
+{% if ubuntu_1804_letsencrypt_deploy_hook %}
+deploy-hook = {{ ubuntu_1804_letsencrypt_deploy_hook }}
+{% endif %}
 
 agree-tos = True
 

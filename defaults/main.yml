@@ -1,7 +1,7 @@
 # defaults file for ubuntu-1804-letsencrypt
 ---
-ubuntu_1804_letsencrypt_additional_certificates_present: []
+ubuntu_1804_letsencrypt_certificates_present: []
 
-ubuntu_1804_letsencrypt_additional_certificates_absent: []
+ubuntu_1804_letsencrypt_certificates_absent: []
 
 ubuntu_1804_letsencrypt_webroot_path: '/var/lib/certbot/http_challenges'

@@ -6,9 +6,9 @@ Set up Letsencrypt on Ubuntu 18.04.
 
 * `ubuntu_1804_letsencrypt_admin_email`: [required]:
 
-* `ubuntu_1804_letsencrypt_additional_certificates_present`: [default: `[]`]:
+* `ubuntu_1804_letsencrypt_certificates_present`: [default: `[]`]:
 
-* `ubuntu_1804_letsencrypt_additional_certificates_absent`: [default: `[]`]:
+* `ubuntu_1804_letsencrypt_certificates_absent`: [default: `[]`]:
 
 * `ubuntu_1804_letsencrypt_http_challenge_forward_host`: [optional]:
 

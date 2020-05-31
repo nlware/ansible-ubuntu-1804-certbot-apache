@@ -1,6 +1,6 @@
 ## ubuntu-1804-letsencrypt
 
-Set up Letsencrypt on Ubuntu 18.04.
+Set up latest Let's Encrypt on Ubuntu 18.04.
 
 #### Variables
 

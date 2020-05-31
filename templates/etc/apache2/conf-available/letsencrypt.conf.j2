@@ -4,12 +4,12 @@ Alias /{{ ubuntu_1804_letsencrypt_acme_challenge_path }}/ "{{ ubuntu_1804_letsen
 <Directory "{{ ubuntu_1804_letsencrypt_webroot_path }}/{{ ubuntu_1804_letsencrypt_acme_challenge_path }}/">
 
 {% if ubuntu_1804_letsencrypt_http_challenge_forward_host is defined %}
-    RewriteEngine on
-    RewriteCond %{HTTP_HOST} .
-    RewriteCond %{HTTP_HOST} !^{{ ansible_host }}$
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteRule ^(.*)$ https://{{ ubuntu_1804_letsencrypt_http_challenge_forward_host }}/{{ ubuntu_1804_letsencrypt_acme_challenge_path }}/$1 [R=302,L]
+  RewriteEngine on
+  RewriteCond %{HTTP_HOST} .
+  RewriteCond %{HTTP_HOST} !^{{ ansible_host }}$
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteRule ^(.*)$ https://{{ ubuntu_1804_letsencrypt_http_challenge_forward_host }}/{{ ubuntu_1804_letsencrypt_acme_challenge_path }}/$1 [R=302,L]
 {% endif %}
 
-    Require all granted
+  Require all granted
 </Directory>

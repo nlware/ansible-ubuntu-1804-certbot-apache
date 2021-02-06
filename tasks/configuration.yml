@@ -11,7 +11,7 @@
     state: directory
 
 - include: configuration-apache.yml
-  when: ubuntu_1804_letsencrypt_webroot_webserver == 'apache'
+  when: ubuntu_1804_letsencrypt_webroot_webserver is defined and ubuntu_1804_letsencrypt_webroot_webserver == 'apache'
 
 - include: configuration-nginx.yml
-  when: ubuntu_1804_letsencrypt_webroot_webserver == 'nginx'
+  when: ubuntu_1804_letsencrypt_webroot_webserver is defined and ubuntu_1804_letsencrypt_webroot_webserver == 'nginx'

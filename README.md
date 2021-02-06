@@ -14,6 +14,10 @@ Set up latest Let's Encrypt on Ubuntu 18.04.
 * `ubuntu_1804_letsencrypt_certificates_absent.{n}.name`: [optional, default: `domains.0`]: The name of the certificate, required when `domains` is empty, defaults to the first domain given in `domains`
 * `ubuntu_1804_letsencrypt_certificates_absent.{n}.domains`: [optional]: List of the domains
 
+* `ubuntu_1804_letsencrypt_authenticator`: [default: `standalone`]: Authenticator to use
+* `ubuntu_1804_letsencrypt_http_01_port`: [optional]: Port used in the http-01 challenge.
+* `ubuntu_1804_letsencrypt_http_01_address`: [optional]: The address the server listens to during http-01 challenge.
+
 * `ubuntu_1804_letsencrypt_acme_challenge_forward_host`: [optional]: Host to forward acme challenges to, when not found on the current host
 
 * `ubuntu_1804_letsencrypt_webroot_path`: [default: `/var/lib/certbot/http_challenges`]: The path to the public_html / webroot folder being served by your web server.

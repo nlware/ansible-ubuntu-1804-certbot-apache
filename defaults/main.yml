@@ -1,5 +1,7 @@
 # defaults file for ubuntu-1804-letsencrypt
 ---
+ubuntu_1804_letsencrypt_authenticator: standalone
+
 ubuntu_1804_letsencrypt_certificates_present: []
 
 ubuntu_1804_letsencrypt_certificates_absent: []

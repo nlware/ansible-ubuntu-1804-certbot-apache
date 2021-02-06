@@ -1,0 +1,8 @@
+# tasks file for ubuntu-1804-letsencrypt
+---
+
+- include: install.yml
+
+- include: configuration.yml
+
+- include: certificates.yml

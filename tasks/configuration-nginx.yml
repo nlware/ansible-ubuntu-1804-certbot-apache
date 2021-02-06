@@ -1,0 +1,6 @@
+# tasks file for ubuntu-1804-letsencrypt
+---
+- name: configuration-nginx | copy snippet file
+  template:
+    src: "{{ ubuntu_1804_letsencrypt_nginx_snippet_file.lstrip('/') }}.j2"
+    dest: "{{ ubuntu_1804_letsencrypt_nginx_snippet_file }}"

@@ -1,0 +1,10 @@
+# tasks file for ubuntu-1804-letsencrypt
+---
+- name: install | add repository
+  apt_repository:
+    repo: 'ppa:certbot/certbot'
+    update_cache: true
+
+- name: install | certbot
+  apt:
+    name: 'certbot'
